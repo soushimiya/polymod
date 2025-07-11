@@ -23,6 +23,8 @@ class HScriptedClassMacro
 		var initialFields:Array<Field> = Context.getBuildFields();
 		var fields:Array<Field> = [].concat(initialFields);
 
+		// Enable runtime type information (RTTI) on the class.
+		cls.meta.add(":rtti", [], cls.pos);
 		// If the class already has `@:hscriptClassPreProcessed` on it, we don't need to do anything.
 		var alreadyProcessed_metadata = cls.meta.get().find(function(m) return m.name == ':hscriptClassPreProcessed');
 
